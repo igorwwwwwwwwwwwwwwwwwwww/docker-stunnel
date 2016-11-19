@@ -1,3 +1,3 @@
 .PHONY:
 build:
-	docker build --tag docker-stunnel .
+	docker build --tag docker.io/igorwwwwwwwwwwwwwwwwwwww/stunnel .
