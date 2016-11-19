@@ -8,5 +8,6 @@ RUN mkdir /run/stunnel
 RUN chown stunnel:stunnel /run/stunnel
 
 ADD bin/generate-config-run-stunnel /bin
+ADD config/stunnel.conf /etc/stunnel
 
 CMD generate-config-run-stunnel
