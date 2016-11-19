@@ -1,0 +1,21 @@
+#!/bin/bash
+
+[ ! -d /tmp/stunnel ] && echo "You must mount config to /tmp/stunnel" && exit 1
+
+rm -rf /etc/stunnel
+cp -r /tmp/stunnel /etc/stunnel
+
+chown stunnel:stunnel /etc/stunnel/stunnel.pem
+chmod 0600 /etc/stunnel/stunnel.pem
+
+[ -z "$PORT" ] && echo "You must set the PORT env var" && exit 1
+[ -z "$UPSTREAM" ] && echo "You must set the UPSTREAM env var" && exit 1
+
+STUNNEL_CONF=/etc/stunnel/stunnel.conf
+
+echo >> $STUNNEL_CONF
+echo "[upstream]" >> $STUNNEL_CONF
+echo "accept = $PORT" >> $STUNNEL_CONF
+echo "connect = $UPSTREAM" >> $STUNNEL_CONF
+
+exec stunnel
