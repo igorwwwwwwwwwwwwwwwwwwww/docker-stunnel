@@ -7,7 +7,8 @@
 
 ## push
 
-    $ docker push docker.io/igorwwwwwwwwwwwwwwwwwwww/stunnel
+    $ # docker push docker.io/igorwwwwwwwwwwwwwwwwwwww/stunnel
+    $ make push
 
 ## run (locally)
 
